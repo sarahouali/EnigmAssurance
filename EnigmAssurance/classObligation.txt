@@ -1,0 +1,8 @@
+class ObligationEtat extends Produit {
+    double tauxInteret;
+    
+    public ObligationEtat(String nom, double prix, double tauxInteret) {
+        super(nom, prix);
+        this.tauxInteret = tauxInteret;
+    }
+}

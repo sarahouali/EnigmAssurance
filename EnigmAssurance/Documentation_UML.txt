@@ -1,0 +1,14 @@
+La classe Produit est la classe de base abstraite, avec les propriétés nom et prix. 
+Les classes Action et Obligation héritent de Produit et ajoutent leurs propres propriétés spécifiques.
+
+La classe Portefeuille contient une propriété produits qui est une liste d'objets Produit,Action ou Obligation.
+ Cette classe possède deux méthodes : ajouterProduit() pour ajouter un produit au portefeuille,
+ et valeurPortefeuille() pour calculer la valeur totale du portefeuille.
+
+La classe ArrayList est une classe qui est utilisée pour stocker la liste de produits dans
+ la classe Portefeuille.
+ Elle possède les méthodes add() et get() pour ajouter et accéder aux éléments de la liste.
+
+
+
+

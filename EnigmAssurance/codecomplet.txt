@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Produit {
+    String nom;
+    double prix;
+    
+    public Produit(String nom, double prix) {
+        this.nom = nom;
+        this.prix = prix;
+    }
+}
+
+class Action extends Produit {
+    String entreprise;
+    
+    public Action(String nom, double prix, String entreprise) {
+        super(nom, prix);
+        this.entreprise = entreprise;
+    }
+}
+
+class ObligationEtat extends Produit {
+    double tauxInteret;
+    
+    public ObligationEtat(String nom, double prix, double tauxInteret) {
+        super(nom, prix);
+        this.tauxInteret = tauxInteret;
+    }
+}
+
+class Portefeuille {
+    ArrayList<Produit> produits = new ArrayList<Produit>();
+    
+    public void ajouterProduit(Produit p) {
+        produits.add(p);
+    }
+    
+    public double valeurPortefeuille() {
+        double valeur = 0;
+        for (Produit p : produits) {
+            valeur += p.prix;
+        }
+        return valeur;
+    }
+}
+
+public class Programme {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        Portefeuille portefeuille = new Portefeuille();
+        
+        // Ajout d'actions
+        System.out.println("Ajout d'actions :");
+        System.out.print("Nom de l'action : ");
+        String nomAction = sc.nextLine();
+        System.out.print("Prix de l'action : ");
+        double prixAction = Double.parseDouble(sc.nextLine());
+        System.out.print("Entreprise : ");
+        String entreprise = sc.nextLine();
+        Action action = new Action(nomAction, prixAction, entreprise);
+        portefeuille.ajouterProduit(action);
+        
+        // Ajout d'obligations d'État
+        System.out.println("Ajout d'obligations d'État :");
+        System.out.print("Nom de l'obligation d'État : ");
+        String nomObligation = sc.nextLine();
+        System.out.print("Prix de l'obligation d'État : ");
+        double prixObligation = Double.parseDouble(sc.nextLine());
+        System.out.print("Taux d'intérêt : ");
+        double tauxInteret = Double.parseDouble(sc.nextLine());
+        ObligationEtat obligationEtat = new ObligationEtat(nomObligation, prixObligation, tauxInteret);
+        portefeuille.ajouterProduit(obligationEtat);
+        
+        // Affichage de la valeur du portefeuille
+        System.out.println("Valeur du portefeuille : " + portefeuille.valeurPortefeuille());
+        
+        sc.close();
+    }
+}

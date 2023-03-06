@@ -1,0 +1,8 @@
+class Action extends Produit {
+    String entreprise;
+    
+    public Action(String nom, double prix, String entreprise) {
+        super(nom, prix);
+        this.entreprise = entreprise;
+    }
+}

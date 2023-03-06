@@ -1,0 +1,35 @@
+
+public class Programme {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        Portefeuille portefeuille = new Portefeuille();
+        
+        // Ajout d'actions
+        System.out.println("Ajout d'actions :");
+        System.out.print("Nom de l'action : ");
+        String nomAction = sc.nextLine();
+        System.out.print("Prix de l'action : ");
+        double prixAction = Double.parseDouble(sc.nextLine());
+        System.out.print("Entreprise : ");
+        String entreprise = sc.nextLine();
+        Action action = new Action(nomAction, prixAction, entreprise);
+        portefeuille.ajouterProduit(action);
+        
+        // Ajout d'obligations d'État
+        System.out.println("Ajout d'obligations d'État :");
+        System.out.print("Nom de l'obligation d'État : ");
+        String nomObligation = sc.nextLine();
+        System.out.print("Prix de l'obligation d'État : ");
+        double prixObligation = Double.parseDouble(sc.nextLine());
+        System.out.print("Taux d'intérêt : ");
+        double tauxInteret = Double.parseDouble(sc.nextLine());
+        ObligationEtat obligationEtat = new ObligationEtat(nomObligation, prixObligation, tauxInteret);
+        portefeuille.ajouterProduit(obligationEtat);
+        
+        // Affichage de la valeur du portefeuille
+        System.out.println("Valeur du portefeuille : " + portefeuille.valeurPortefeuille());
+        
+        sc.close();
+    }
+}

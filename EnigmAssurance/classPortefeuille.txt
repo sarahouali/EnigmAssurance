@@ -1,0 +1,15 @@
+class Portefeuille {
+    ArrayList<Produit> produits = new ArrayList<Produit>();
+    
+    public void ajouterProduit(Produit p) {
+        produits.add(p);
+    }
+    
+    public double valeurPortefeuille() {
+        double valeur = 0;
+        for (Produit p : produits) {
+            valeur += p.prix;
+        }
+        return valeur;
+    }
+}$
